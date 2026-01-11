@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年1月 體重簽到</title>
+    <meta name="description" content="2026年1月體重追蹤簽到表，每日記錄，輕鬆管理健康。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Outfit:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div style="position: relative;">
+                <h1>2026年1月 體重簽到</h1>
+                <button id="settingsBtn" class="icon-btn"
+                    style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--primary-color); font-size: 1.2rem; cursor: pointer;"><i
+                        class="fa-solid fa-gear"></i></button>
+            </div>
+            <p class="subtitle">堅持每一天，遇見更好的自己</p>
+        </header>
+
+        <section class="input-section">
+            <div class="card input-card">
+                <label for="weightInput">今日體重 (kg)</label>
+                <div class="input-group">
+                    <input type="number" id="weightInput" step="0.1" placeholder="00.0">
+                    <button id="saveBtn" class="primary-btn"><i class="fa-solid fa-cloud-arrow-up"></i> 上傳</button>
+                </div>
+                <p id="message" class="message"></p>
+                <div id="loadingIndicator" class="loading hidden">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i> 上傳中...
+                </div>
+            </div>
+        </section>
+
+        <section class="calendar-section">
+            <div class="calendar-header">
+                <div class="day-name">週日</div>
+                <div class="day-name">週一</div>
+                <div class="day-name">週二</div>
+                <div class="day-name">週三</div>
+                <div class="day-name">週四</div>
+                <div class="day-name">週五</div>
+                <div class="day-name">週六</div>
+            </div>
+            <div id="calendarGrid" class="calendar-grid">
+                <!-- Javascript will populate this -->
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>本月初始</h3>
+                <span id="startWeight">--</span> <span class="unit">kg</span>
+            </div>
+            <div class="stat-card">
+                <h3>目前體重</h3>
+                <span id="currentWeight">--</span> <span class="unit">kg</span>
+            </div>
+            <div class="stat-card">
+                <h3>變化</h3>
+                <span id="weightChange" class="neutral">--</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>Weight Tracker 2026</p>
+        </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>GitHub 設定</h2>
+                <button id="closeSettingsBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="info-text">請輸入您的 GitHub Token 以進行同步。<br>
+                    <span style="font-size: 0.8rem; opacity: 0.8;">(Username 與 Repo 已預設於程式碼中)</span>
+                </p>
+
+                <div class="form-group">
+                    <label for="ghToken">輸入Token碼</label>
+                    <input type="text" id="ghToken" placeholder="ghp_xxxxxxxxxxxx">
+                </div>
+
+                <button id="saveSettingsBtn" class="primary-btn full-width" style="margin-top: 20px;">儲存設定</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
